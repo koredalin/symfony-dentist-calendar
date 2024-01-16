@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use function Symfony\Component\String\u;
@@ -11,12 +12,20 @@ use function Symfony\Component\String\u;
  *
  * @author user
  */
-class VinylController
+class VinylController extends AbstractController
 {
     #[Route('/')]
     public function index(): Response
     {
-        return new Response('Title: Tralala.');
+        $tracks = [
+            ['song'=>'Creep', 'artist'=>'Radiohead'],
+            ['song'=>'Wateffalls', 'artist'=>'TLC'],
+        ];
+        
+        return $this->render('vinyl/homepage.html.twig', [
+            'title'=>'PB & Jams',
+            'tracks'=>$tracks
+        ]);
     }
     
     #[Route('/browse/{slug}')]
