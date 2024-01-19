@@ -33,3 +33,4 @@ services:
 #    App\Service\MixRepository:
 #        bind:
 #            '$isDebug': '%kernel.debug%'
+#            $twigDebugCommand: '@twig.command.debug'
