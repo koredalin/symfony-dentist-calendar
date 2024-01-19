@@ -27,9 +27,9 @@ class MixRepository {
 
     public function findAll(): array
     {
-        $output = new BufferedOutput();
-        $this->twigDebugCommand->run(new ArrayInput([]), $output);
-        dd($output);
+//        $output = new BufferedOutput();
+//        $this->twigDebugCommand->run(new ArrayInput([]), $output);
+//        dd($output);
 
         return $this->cache->get('mixes_data', function(CacheItemInterface $cacheItem) {
             $cacheItem->expiresAfter($this->isDebug ? 10 : 60 * 5);
